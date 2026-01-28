@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Secure Federated Learning in Healthcare</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🔒</span>
+                <h1>SecureHealth AI</h1>
+            </div>
+            <nav class="navbar">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="architecture.html" class="nav-link">Architecture</a>
+                <a href="modules.html" class="nav-link">Modules</a>
+                <a href="results.html" class="nav-link">Results</a>
+                <a href="login.html" class="nav-link btn-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h1 class="page-title">About This Project</h1>
+            
+            <!-- Problem Statement -->
+            <div class="content-block">
+                <h2 class="block-title">Problem Statement</h2>
+                <div class="problem-grid">
+                    <div class="problem-item">
+                        <div class="problem-icon">⚠️</div>
+                        <h3>Privacy Risks</h3>
+                        <p>Centralized data storage increases the risk of privacy breaches and unauthorized access to sensitive patient records</p>
+                    </div>
+                    <div class="problem-item">
+                        <div class="problem-icon">🔓</div>
+                        <h3>Data Leakage</h3>
+                        <p>Traditional ML requires sharing raw patient data, creating vulnerability to data poisoning attacks</p>
+                    </div>
+                    <div class="problem-item">
+                        <div class="problem-icon">❓</div>
+                        <h3>No Verification</h3>
+                        <p>Lack of verification mechanism for model updates makes the system vulnerable to tampering</p>
+                    </div>
+                    <div class="problem-item">
+                        <div class="problem-icon">🤝</div>
+                        <h3>Trust Issues</h3>
+                        <p>Limited trust among participating hospitals due to competitive nature and data sensitivity</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objectives -->
+            <div class="content-block">
+                <h2 class="block-title">Project Objectives</h2>
+                <ul class="objectives-list">
+                    <li>Enable collaborative machine learning without centralizing sensitive patient data</li>
+                    <li>Implement privacy-preserving techniques using Federated Learning</li>
+                    <li>Ensure data integrity through blockchain verification</li>
+                    <li>Secure model aggregation using SMPC (Secure Multi-Party Computation)</li>
+                    <li>Detect anomalies and potential attacks in healthcare datasets</li>
+                    <li>Provide a trustworthy framework for multi-institutional collaboration</li>
+                </ul>
+            </div>
+
+            <!-- Technologies Overview -->
+            <div class="content-block">
+                <h2 class="block-title">Technology Stack</h2>
+                <div class="tech-grid">
+                    <div class="tech-category">
+                        <h3>Frontend</h3>
+                        <ul>
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                        </ul>
+                    </div>
+                    <div class="tech-category">
+                        <h3>Backend</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>Flask/Django</li>
+                            <li>Scikit-Learn</li>
+                        </ul>
+                    </div>
+                    <div class="tech-category">
+                        <h3>Database</h3>
+                        <ul>
+                            <li>MySQL</li>
+                            <li>Blockchain Ledger</li>
+                        </ul>
+                    </div>
+                    <div class="tech-category">
+                        <h3>ML Libraries</h3>
+                        <ul>
+                            <li>NumPy</li>
+                            <li>Pandas</li>
+                            <li>Scikit-Learn</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advantages -->
+            <div class="content-block">
+                <h2 class="block-title">Advantages</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item success">
+                        <h3>✓ Data Privacy</h3>
+                        <p>Patient data remains local and is never transferred to a central server</p>
+                    </div>
+                    <div class="benefit-item success">
+                        <h3>✓ Attack Prevention</h3>
+                        <p>Prevents poisoning attacks through verification and monitoring</p>
+                    </div>
+                    <div class="benefit-item success">
+                        <h3>✓ Decentralized</h3>
+                        <p>No single point of failure—each institution maintains autonomy</p>
+                    </div>
+                    <div class="benefit-item success">
+                        <h3>✓ Transparent</h3>
+                        <p>Blockchain ensures all transactions are auditable and tamper-proof</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Limitations -->
+            <div class="content-block">
+                <h2 class="block-title">Challenges & Limitations</h2>
+                <div class="challenges-grid">
+                    <div class="challenge-item">
+                        <h3>High Computational Cost</h3>
+                        <p>Federated learning and encryption require significant computational resources</p>
+                    </div>
+                    <div class="challenge-item">
+                        <h3>Blockchain Latency</h3>
+                        <p>Verification and recording on blockchain can introduce delays in the system</p>
+                    </div>
+                    <div class="challenge-item">
+                        <h3>Processing Time</h3>
+                        <p>SMPC-based aggregation increases processing time compared to centralized approaches</p>
+                    </div>
+                    <div class="challenge-item">
+                        <h3>Implementation Complexity</h3>
+                        <p>Integrating multiple security mechanisms requires careful coordination</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Applications -->
+            <div class="content-block">
+                <h2 class="block-title">Real-World Applications</h2>
+                <div class="applications-list">
+                    <div class="app-item">
+                        <span class="app-icon">🖼️</span>
+                        <h3>Medical Image Classification</h3>
+                        <p>Collaborative training on medical images for disease detection</p>
+                    </div>
+                    <div class="app-item">
+                        <span class="app-icon">🏥</span>
+                        <h3>Disease Prediction Systems</h3>
+                        <p>Predict patient outcomes using federated learning models</p>
+                    </div>
+                    <div class="app-item">
+                        <span class="app-icon">🌐</span>
+                        <h3>Hospital Networks</h3>
+                        <p>Multiple hospitals collaborating securely on shared research</p>
+                    </div>
+                    <div class="app-item">
+                        <span class="app-icon">📱</span>
+                        <h3>IoMT Systems</h3>
+                        <p>Internet of Medical Things with privacy-preserving analytics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 SecureHealth AI. Secure Federated Learning in Healthcare.</p>
+            <p>College Project | Privacy-Preserving Machine Learning</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

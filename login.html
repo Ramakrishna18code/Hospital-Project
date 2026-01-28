@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Secure Federated Learning in Healthcare</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🔒</span>
+                <h1>SecureHealth AI</h1>
+            </div>
+            <nav class="navbar">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="architecture.html" class="nav-link">Architecture</a>
+                <a href="modules.html" class="nav-link">Modules</a>
+                <a href="results.html" class="nav-link">Results</a>
+                <a href="login.html" class="nav-link btn-login active">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Login Section -->
+    <section class="login-section">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <h1>Secure Login</h1>
+                    <p>Access the Federated Learning Platform</p>
+                </div>
+
+                <form class="login-form" id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@hospital.org" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+                </form>
+
+                <div class="login-divider">
+                    <span>Don't have an account?</span>
+                </div>
+
+                <button class="btn btn-secondary btn-full" onclick="toggleRegister()">Create New Account</button>
+
+                <div class="login-footer">
+                    <a href="#" class="footer-link">Forgot password?</a>
+                    <span class="separator">|</span>
+                    <a href="#" class="footer-link">Need help?</a>
+                </div>
+            </div>
+
+            <!-- Register Form (Hidden) -->
+            <div class="register-card" id="registerCard" style="display: none;">
+                <div class="register-header">
+                    <h1>Create Account</h1>
+                    <p>Join the Secure Federated Learning Network</p>
+                </div>
+
+                <form class="login-form" id="registerForm" onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label for="institution">Healthcare Institution</label>
+                        <input type="text" id="institution" name="institution" placeholder="Your Hospital Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-email">Email Address</label>
+                        <input type="email" id="reg-email" name="email" placeholder="admin@hospital.org" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-password">Password</label>
+                        <input type="password" id="reg-password" name="password" placeholder="Create a strong password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirm your password" required>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="agree" name="agree" required>
+                        <label for="agree">I agree to the Terms of Service and Privacy Policy</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+                </form>
+
+                <div class="login-divider">
+                    <span>Already have an account?</span>
+                </div>
+
+                <button class="btn btn-secondary btn-full" onclick="toggleRegister()">Back to Login</button>
+            </div>
+
+            <!-- Dashboard Preview (For Demo) -->
+            <div class="dashboard-card" id="dashboardCard" style="display: none;">
+                <div class="dashboard-header">
+                    <h1>Dashboard</h1>
+                    <p id="welcomeUser"></p>
+                </div>
+
+                <div class="dashboard-content">
+                    <div class="dashboard-section">
+                        <h2>Training Status</h2>
+                        <div class="status-item">
+                            <span>Current Round: 12/20</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-section">
+                        <h2>Model Performance</h2>
+                        <div class="perf-grid">
+                            <div class="perf-item">
+                                <div class="perf-label">Accuracy</div>
+                                <div class="perf-value">92.3%</div>
+                            </div>
+                            <div class="perf-item">
+                                <div class="perf-label">Precision</div>
+                                <div class="perf-value">94.1%</div>
+                            </div>
+                            <div class="perf-item">
+                                <div class="perf-label">Recall</div>
+                                <div class="perf-value">90.5%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-section">
+                        <h2>Recent Activities</h2>
+                        <ul class="activity-list">
+                            <li>✓ Model update verified on blockchain (2 hours ago)</li>
+                            <li>✓ SMPC aggregation completed (4 hours ago)</li>
+                            <li>✓ Local training finished (6 hours ago)</li>
+                        </ul>
+                    </div>
+
+                    <button class="btn btn-secondary btn-full" onclick="handleLogout()">Logout</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Box -->
+        <div class="login-info">
+            <div class="info-item">
+                <h3>🔐 Secure Access</h3>
+                <p>All connections are encrypted using industry-standard SSL/TLS protocols</p>
+            </div>
+            <div class="info-item">
+                <h3>🏥 Institutional Verified</h3>
+                <p>Only verified healthcare institutions can access the platform</p>
+            </div>
+            <div class="info-item">
+                <h3>📋 Audit Trail</h3>
+                <p>All activities are logged and recorded on the blockchain ledger</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 SecureHealth AI. Secure Federated Learning in Healthcare.</p>
+            <p>College Project | Privacy-Preserving Machine Learning</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
