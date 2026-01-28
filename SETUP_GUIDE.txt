@@ -1,0 +1,391 @@
+"""
+SETUP & INSTALLATION GUIDE
+SecureHealth AI - Federated Learning in Healthcare
+"""
+
+# ============================================================================
+# SETUP & INSTALLATION GUIDE
+# ============================================================================
+
+## 📋 TABLE OF CONTENTS
+1. System Requirements
+2. Installation Steps
+3. Running the Application
+4. Accessing the System
+5. Testing the API
+6. Troubleshooting
+7. Project Structure
+
+## 🔧 SYSTEM REQUIREMENTS
+
+### Hardware
+- CPU: Dual-core processor or better
+- RAM: 4 GB minimum (8 GB recommended)
+- Storage: 500 MB free space
+
+### Software
+- OS: Windows 10/11, macOS, or Linux
+- Python: 3.8 or higher
+- pip: 21.0 or higher
+- Git: Latest version
+
+### Browsers
+- Chrome/Edge (Latest)
+- Firefox (Latest)
+- Safari (Latest)
+
+## 📥 INSTALLATION STEPS
+
+### Step 1: Clone Repository
+```bash
+git clone https://github.com/Ramakrishna18code/Hospital-Project.git
+cd Hospital-Project
+```
+
+### Step 2: Create Virtual Environment
+```bash
+# Windows
+python -m venv venv
+venv\Scripts\activate
+
+# macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### Step 3: Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### Step 4: Verify Installation
+```bash
+python -c "import flask, sqlalchemy, sklearn; print('All dependencies installed!')"
+```
+
+## 🚀 RUNNING THE APPLICATION
+
+### Option 1: Run Both Servers Simultaneously
+
+**Terminal 1 - Frontend (Port 8000)**
+```bash
+cd "C:\path\to\Hospital Project"
+python -m http.server 8000
+```
+
+**Terminal 2 - Backend (Port 5000)**
+```bash
+cd "C:\path\to\Hospital Project"
+python app.py
+```
+
+### Option 2: Run Frontend Only
+```bash
+python -m http.server 8000
+# Access at http://localhost:8000
+```
+
+### Option 3: Run Backend Only
+```bash
+python app.py
+# API available at http://localhost:5000/api
+```
+
+## 🌐 ACCESSING THE SYSTEM
+
+### Frontend Application
+- **URL**: http://localhost:8000
+- **Pages**:
+  - Home: http://localhost:8000/index.html
+  - About: http://localhost:8000/about.html
+  - Architecture: http://localhost:8000/architecture.html
+  - Modules: http://localhost:8000/modules.html
+  - Results: http://localhost:8000/results.html
+  - Login: http://localhost:8000/login.html
+
+### Backend API
+- **Base URL**: http://localhost:5000
+- **Health Check**: http://localhost:5000/api/health
+- **API Documentation**: See api_docs.py
+
+## 🧪 TESTING THE API
+
+### Using cURL (Command Line)
+
+#### 1. Health Check
+```bash
+curl http://localhost:5000/api/health
+```
+
+#### 2. Register Institution
+```bash
+curl -X POST http://localhost:5000/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d {
+    "email": "admin@hospital.org",
+    "password": "SecurePass123",
+    "institution": "Central Hospital"
+  }
+```
+
+#### 3. Login
+```bash
+curl -X POST http://localhost:5000/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d {
+    "email": "admin@hospital.org",
+    "password": "SecurePass123"
+  }
+```
+
+### Using Python Requests
+
+```python
+import requests
+
+# Health check
+response = requests.get('http://localhost:5000/api/health')
+print(response.json())
+
+# Register
+data = {
+    'email': 'admin@hospital.org',
+    'password': 'SecurePass123',
+    'institution': 'Central Hospital'
+}
+response = requests.post('http://localhost:5000/api/auth/register', json=data)
+print(response.json())
+```
+
+### Using Postman
+1. Import API collection (if available)
+2. Set base URL to http://localhost:5000
+3. Create requests for each endpoint
+4. Test authentication and payload validation
+
+## 🔧 TROUBLESHOOTING
+
+### Issue: Port Already in Use
+
+**Problem**: "Address already in use"
+
+**Solution**:
+```bash
+# Find process using port 8000 (Windows)
+netstat -ano | findstr :8000
+
+# Kill process (Windows)
+taskkill /PID <PID> /F
+
+# For port 5000
+netstat -ano | findstr :5000
+```
+
+### Issue: Module Not Found
+
+**Problem**: "ModuleNotFoundError: No module named 'flask'"
+
+**Solution**:
+```bash
+# Ensure virtual environment is activated
+# Then reinstall dependencies
+pip install -r requirements.txt
+```
+
+### Issue: Database Locked
+
+**Problem**: "Database is locked"
+
+**Solution**:
+```bash
+# Delete existing database and restart
+rm securehealth.db
+python app.py
+```
+
+### Issue: Python Version Error
+
+**Problem**: "Python 3.8+ required"
+
+**Solution**:
+```bash
+# Check Python version
+python --version
+
+# If old version, use python3
+python3 app.py
+```
+
+## 📁 PROJECT STRUCTURE
+
+```
+Hospital-Project/
+│
+├── FRONTEND (HTML/CSS/JavaScript)
+│   ├── index.html              # Home page
+│   ├── about.html              # About project
+│   ├── architecture.html       # System design
+│   ├── modules.html            # System modules
+│   ├── results.html            # Results & metrics
+│   ├── login.html              # Login page
+│   ├── styles.css              # Styling
+│   └── script.js               # JavaScript logic
+│
+├── BACKEND (Python/Flask)
+│   ├── app.py                  # Main application
+│   ├── models.py               # Database models
+│   ├── ml_engine.py            # ML algorithms
+│   ├── federated_learning.py   # FL logic
+│   ├── smpc_engine.py          # Encryption
+│   ├── blockchain_ledger.py    # Blockchain
+│   ├── security.py             # Security
+│   ├── config.py               # Configuration
+│   ├── api_docs.py             # API reference
+│   └── test_utils.py           # Testing
+│
+├── CONFIGURATION
+│   ├── requirements.txt        # Dependencies
+│   ├── .gitignore             # Git ignore
+│   ├── README.md              # Frontend guide
+│   └── README_BACKEND.md      # Backend guide
+│
+├── DOCUMENTATION
+│   ├── PROJECT_SUMMARY.py     # Summary
+│   └── SETUP_GUIDE.txt        # This file
+│
+└── .git/                       # Git repository
+```
+
+## 🔌 API ENDPOINTS SUMMARY
+
+### Authentication (3 endpoints)
+- POST /api/auth/register
+- POST /api/auth/login
+- POST /api/auth/logout
+
+### Federated Learning (3 endpoints)
+- POST /api/fl/start-training
+- POST /api/fl/upload-model-update
+- POST /api/fl/aggregate-models
+
+### Machine Learning (2 endpoints)
+- POST /api/ml/train-local-model
+- POST /api/ml/detect-anomalies
+
+### Blockchain (2 endpoints)
+- POST /api/blockchain/verify-update
+- GET /api/blockchain/get-ledger
+
+### Admin (2 endpoints)
+- POST /api/admin/verify-institution
+- GET /api/admin/get-training-status
+
+### Dashboard (1 endpoint)
+- GET /api/dashboard/statistics
+
+### Health (1 endpoint)
+- GET /api/health
+
+## 📊 TESTING WORKFLOW
+
+1. **Start Servers**
+   - Open Terminal 1: Frontend server (port 8000)
+   - Open Terminal 2: Backend server (port 5000)
+
+2. **Access Frontend**
+   - Open browser to http://localhost:8000
+   - Navigate through all pages
+
+3. **Test Registration**
+   - Click "Get Started"
+   - Fill registration form
+   - Submit registration
+
+4. **Test Login**
+   - Enter credentials
+   - Access dashboard
+   - Verify session
+
+5. **Test FL Workflow**
+   - Start training session
+   - Upload model update
+   - Monitor aggregation
+   - Verify blockchain
+
+## ⚙️ ADVANCED CONFIGURATION
+
+### Change Frontend Port
+```bash
+python -m http.server 3000  # Use port 3000
+```
+
+### Change Backend Port
+Edit `app.py`:
+```python
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=3000)  # Use port 3000
+```
+
+### Use MySQL Database
+Edit `config.py`:
+```python
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://user:password@localhost/securehealth'
+```
+
+### Enable Production Mode
+```bash
+# Stop debug mode
+export FLASK_ENV=production
+python app.py
+```
+
+## 📚 DOCUMENTATION FILES
+
+- **README.md** - Frontend overview and features
+- **README_BACKEND.md** - Backend architecture and APIs
+- **PROJECT_SUMMARY.py** - Complete project summary
+- **api_docs.py** - API endpoint documentation
+- **SETUP_GUIDE.txt** - Installation and setup (this file)
+
+## ✅ VERIFICATION CHECKLIST
+
+After setup, verify:
+- [ ] Git repository cloned successfully
+- [ ] Virtual environment created and activated
+- [ ] Dependencies installed without errors
+- [ ] Frontend server running on port 8000
+- [ ] Backend server running on port 5000
+- [ ] Frontend pages load in browser
+- [ ] API health check returns 200
+- [ ] Database created (securehealth.db)
+- [ ] No error messages in console
+
+## 🎓 READY FOR COLLEGE SUBMISSION
+
+Your project is now ready for:
+✓ College project submission
+✓ Faculty presentations
+✓ Peer demonstrations
+✓ Research publication
+✓ Portfolio projects
+
+## 📞 SUPPORT
+
+For issues or questions:
+1. Check troubleshooting section above
+2. Review console/terminal error messages
+3. Check GitHub Issues: https://github.com/Ramakrishna18code/Hospital-Project/issues
+4. Review documentation files
+
+## 🎉 SUCCESS!
+
+Your SecureHealth AI system is now complete and running!
+
+Next steps:
+1. Explore the web interface
+2. Test API endpoints
+3. Review the code
+4. Customize as needed
+5. Submit your project
+
+Good luck with your college project! 🚀
